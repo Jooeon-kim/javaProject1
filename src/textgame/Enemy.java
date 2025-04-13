@@ -41,7 +41,7 @@ class BattleManager{
         System.out.println("시작");
         int playerDamage;
         int enemyDamage;
-        while(player.health>0 && enemy.health>0) {
+        while(player.health >0 && enemy.health>0) {
             if (player.speed > enemy.speed) {
                 System.out.println("플레이어 선공");
                 playerDamage = player.CharacterAttack();
@@ -57,10 +57,12 @@ class BattleManager{
             }
         }
         System.out.println("전투 종료");
-        if(player.health>0){
+        if(player.health >0){
             System.out.println("플레이어 승리!");
-            player.getXp(300);
-        }else
+            player.getXp(50*enemy.level);
+        }else{
             System.out.println("플레이어 패배");
+            player.life -=1;
+        }
     }
 }
